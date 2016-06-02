@@ -5,7 +5,7 @@ Tool for compiling iOS toolchain
 
 This tool intend to replace all the previous tools/ in shell script.
 """
-
+from __future__ import print_function
 import sys
 from sys import stdout
 from os.path import join, dirname, realpath, exists, isdir, basename
@@ -1075,7 +1075,7 @@ Xcode:
             parser.add_argument("command", help="Command to run")
             args = parser.parse_args(sys.argv[1:2])
             if not hasattr(self, args.command):
-                print 'Unrecognized command'
+                print('Unrecognized command')
                 parser.print_help()
                 exit(1)
             getattr(self, args.command)()
@@ -1243,7 +1243,7 @@ Xcode:
                 "PYTHONOPTIMIZE": "2",
                 "PIP_INSTALL_TARGET": ctx.site_packages_dir
             }
-            print pip_env
+            print(pip_env)
             pip_path = sh.which("pip")
             args = [pip_path] + sys.argv[2:]
             if not pip_path:
